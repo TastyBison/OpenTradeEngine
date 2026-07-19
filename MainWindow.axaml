@@ -1,0 +1,153 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="720"
+        x:Class="OpenTradeEngine.MainWindow"
+        Title="OpenTradeEngine"
+        Width="1200"
+        Height="720"
+        MinWidth="800"
+        MinHeight="600"
+        Background="#050505"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Styles>
+        <Style Selector="Button.main-menu">
+            <Setter Property="Height" Value="64" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="BorderBrush" Value="#42B8F2" />
+            <Setter Property="BorderThickness" Value="1.5" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#35A9E9" />
+                    <GradientStop Offset="1" Color="#0875D1" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.main-menu:pointerover">
+            <Setter Property="Background" Value="#45B9F4" />
+        </Style>
+
+        <Style Selector="Button.quit">
+            <Setter Property="BorderBrush" Value="#FFB42A" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#F7B52C" />
+                    <GradientStop Offset="1" Color="#D87800" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+    </Window.Styles>
+
+    <Grid>
+        <Grid x:Name="InstallationPanel"
+              RowDefinitions="Auto,*,Auto"
+              Margin="40">
+            <StackPanel Grid.Row="0" Spacing="10">
+                <TextBlock Text="Find Gazillionaire"
+                           FontSize="28"
+                           FontWeight="SemiBold" />
+                <TextBlock Text="OpenTradeEngine needs an installed copy of Gazillionaire to load the original artwork, sounds, and game text."
+                           FontSize="15"
+                           TextWrapping="Wrap"
+                           MaxWidth="590"
+                           HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        VerticalAlignment="Center"
+                        Spacing="12">
+                <TextBlock Text="Gazillionaire installation folder" />
+
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                    <TextBox x:Name="InstallationPathTextBox"
+                             Grid.Column="0"
+                             PlaceholderText="Select the folder containing Gazillionaire.swf"
+                             IsReadOnly="True" />
+                    <Button Grid.Column="1"
+                            Content="Browse..."
+                            Padding="20,8"
+                            Click="BrowseButton_Click" />
+                </Grid>
+
+                <TextBlock x:Name="StatusTextBlock"
+                           Text="No installation selected."
+                           TextWrapping="Wrap" />
+            </StackPanel>
+
+            <Button x:Name="ContinueButton"
+                    Grid.Row="2"
+                    Content="Continue"
+                    HorizontalAlignment="Right"
+                    Padding="24,9"
+                    IsEnabled="False"
+                    Click="ContinueButton_Click" />
+        </Grid>
+
+        <Grid x:Name="MainMenuPanel"
+              IsVisible="False">
+            <Image x:Name="MainMenuBackgroundImage"
+                   Stretch="UniformToFill"
+                   RenderTransformOrigin="50%,50%">
+                <Image.RenderTransform>
+                    <ScaleTransform ScaleX="-1" />
+                </Image.RenderTransform>
+            </Image>
+
+            <Rectangle Fill="#18000000" />
+
+            <Grid ColumnDefinitions="38*,42,62*"
+                  Margin="48,28,42,28">
+                <ScrollViewer Grid.Column="0"
+                              VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled"
+                              HorizontalContentAlignment="Stretch">
+                    <StackPanel Spacing="12"
+                                HorizontalAlignment="Stretch">
+                        <Button Classes="main-menu" Content="Start New Game" Click="StartNewGameButton_Click" />
+                        <Button Classes="main-menu" Content="Load Saved Game" Click="LoadSavedGameButton_Click" />
+                        <Button Classes="main-menu" Content="About Gazillionaire" Click="AboutGazillionaireButton_Click" />
+                        <Button Classes="main-menu" Content="About LavaMind" Click="AboutLavaMindButton_Click" />
+                        <Button Classes="main-menu" Content="About OpenTradeEngine" Click="AboutOpenTradeEngineButton_Click" />
+                        <Button x:Name="FullScreenButton" Classes="main-menu" Content="Enter Full Screen" Click="FullScreenButton_Click" />
+                        <Button x:Name="SoundButton" Classes="main-menu" Content="Sound On" Click="SoundButton_Click" />
+                        <Button Classes="main-menu quit" Content="Quit Game" Click="QuitGameButton_Click" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Border Grid.Column="2"
+                        Background="Transparent"
+                        Padding="28,32"
+                        MaxWidth="820"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top">
+                    <StackPanel Spacing="30">
+                        <TextBlock x:Name="MenuHeadingTextBlock"
+                                   Text="Welcome to Gazillionaire"
+                                   Foreground="White"
+                                   FontSize="31"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   TextWrapping="Wrap" />
+                        <TextBlock x:Name="MenuBodyTextBlock"
+                                   Foreground="White"
+                                   FontSize="20"
+                                   LineHeight="30"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                   Text="For the first time in 700 years, Emperor Dred Nicolson has granted you and a handful of other newly formed trading companies permission to operate inside the Kukubian Colonies.&#10;&#10;As president of a trading company, you must make a profit transporting essential commodities between the seven planets of Kukubia.&#10;&#10;Your goal is to build a trade empire by investing in larger ships, buying warehouses and skillfully out-maneuvering your competitors." />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
