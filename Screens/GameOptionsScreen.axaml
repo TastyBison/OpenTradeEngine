@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.GameOptionsScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.mode-button">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="76" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="#36B8F6" />
+            <Setter Property="Background" Value="#147ECB" />
+        </Style>
+        <Style Selector="Button.back-button">
+            <Setter Property="Width" Value="430" />
+            <Setter Property="Height" Value="70" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="BorderBrush" Value="#FFC033" />
+            <Setter Property="Background" Value="#D97800" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#020202">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.78" />
+        <StackPanel Width="1050" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="28">
+            <TextBlock Text="Options" Foreground="White" FontSize="48" FontWeight="Bold"
+                       TextAlignment="Center" />
+            <TextBlock Text="AI Event Reports" Foreground="#63C9FF" FontSize="34" FontWeight="Bold"
+                       TextAlignment="Center" />
+            <Grid ColumnDefinitions="1*,1*,1*" ColumnSpacing="34">
+                <StackPanel Spacing="14">
+                    <Button x:Name="FullButton" Classes="mode-button" Content="Full" Click="FullButton_Click" />
+                    <TextBlock Text="Show every non-quiet AI travel event and its resolved outcome."
+                               Foreground="White" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Spacing="14">
+                    <Button x:Name="DefaultButton" Classes="mode-button" Content="Default" Click="DefaultButton_Click" />
+                    <TextBlock Text="Show offers an AI accepts and police catches without exposing its finances."
+                               Foreground="White" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Spacing="14">
+                    <Button x:Name="NoneButton" Classes="mode-button" Content="None" Click="NoneButton_Click" />
+                    <TextBlock Text="Hide optional reports about AI travel events."
+                               Foreground="White" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" />
+                </StackPanel>
+            </Grid>
+            <Border Background="#D9000028" CornerRadius="12" Padding="24,18">
+                <TextBlock Foreground="#D8D8E8" FontSize="18" TextWrapping="Wrap" TextAlignment="Center"
+                           Text="This only changes information shown to human players. AI choices and event effects are unchanged. Public sabotage damage, auction results and arrival dialogue are always shown." />
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="24">
+                <Button Classes="mode-button" Content="Open Mods Folder" Click="OpenModsButton_Click" />
+                <Button Classes="mode-button" Content="Reload Mods" Click="ReloadModsButton_Click" />
+            </StackPanel>
+            <TextBlock x:Name="ModStatusText" Foreground="LightGreen" FontSize="17"
+                       TextAlignment="Center" TextWrapping="Wrap" />
+            <Button Classes="back-button" Content="&lt;&lt; Back" Click="BackButton_Click"
+                    HorizontalAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

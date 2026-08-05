@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.PlayerTurnScreen">
+    <Grid Background="#02022F" Margin="60,64,48,34" ColumnDefinitions="550,66,*">
+        <Grid Grid.Column="0" RowDefinitions="Auto,34,350,Auto,Auto,*">
+            <TextBlock x:Name="CompanyHeading" Foreground="White" FontSize="31"
+                       FontWeight="Bold" TextAlignment="Center" />
+            <Border Grid.Row="2" Background="Black" BorderBrush="#626278" BorderThickness="8"
+                    CornerRadius="16" Padding="10" Cursor="Hand" PointerPressed="ShipPanel_PointerPressed">
+                <Image x:Name="ShipImage" Stretch="Uniform" />
+            </Border>
+            <TextBlock x:Name="StatusText" Grid.Row="3" Text="Status:  Needy Trader" Foreground="White"
+                       FontSize="20" Margin="14,20,0,0" />
+            <TextBlock x:Name="BankruptText" Grid.Row="4" Text="Bankrupt Companies:  none" Foreground="White"
+                       FontSize="20" Margin="14,14,0,0" />
+        </Grid>
+
+        <Grid Grid.Column="2" RowDefinitions="Auto,*,Auto">
+            <TextBlock x:Name="WeekText" Text="Week 1" Foreground="White" FontSize="31" FontWeight="Bold"
+                       TextAlignment="Center" Margin="0,0,0,28" />
+            <StackPanel Grid.Row="1" Spacing="22">
+                <TextBlock x:Name="TargetText" Text="The companies are ranked according to their wealth."
+                           Foreground="White" FontSize="20" LineHeight="28" TextWrapping="Wrap" />
+                <TextBlock x:Name="RankingText" Foreground="White" FontSize="20"
+                           LineHeight="29" TextWrapping="Wrap" />
+                <TextBlock x:Name="DifficultyText" Foreground="White" FontSize="20"
+                           Margin="0,4,0,0" />
+                <TextBlock x:Name="TutorialText" Foreground="#FFCB70" FontSize="18"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+            <Button Grid.Row="2" Classes="event-action" Content="Begin Turn" Width="320"
+                    HorizontalAlignment="Center" Margin="0,20,0,26"
+                    Click="BeginTurnButton_Click" />
+        </Grid>
+    </Grid>
+</UserControl>

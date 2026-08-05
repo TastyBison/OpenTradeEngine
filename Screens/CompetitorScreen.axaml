@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.CompetitorScreen">
+    <Grid Background="#02022F" RowDefinitions="Auto,*,Auto">
+        <TextBlock Text="Your Competitors" Margin="0,24,0,16" Foreground="White"
+                   FontSize="31" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Grid x:Name="CompetitorGrid" Grid.Row="1" Margin="28" ColumnDefinitions="*,24,*,24,*" RowDefinitions="*,24,*" />
+        <Button Grid.Row="2" Classes="event-action" Content="Continue" Width="360"
+                Margin="0,10,0,28" HorizontalAlignment="Center" Click="ContinueButton_Click" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.FileOptionsScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.file-option">
+            <Setter Property="Height" Value="70" />
+            <Setter Property="FontSize" Value="23" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="CornerRadius" Value="16" />
+            <Setter Property="BorderThickness" Value="1.5" />
+        </Style>
+        <Style Selector="Button.blue-option">
+            <Setter Property="BorderBrush" Value="#36B8F6" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#39AEEB" />
+                    <GradientStop Offset="1" Color="#0875CF" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.green-option">
+            <Setter Property="BorderBrush" Value="#87C624" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#82BE26" />
+                    <GradientStop Offset="1" Color="#4E8D05" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.orange-option">
+            <Setter Property="BorderBrush" Value="#FFC033" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#F6B62D" />
+                    <GradientStop Offset="1" Color="#D97800" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#020202">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.78" />
+        <Grid Width="840" Height="760" HorizontalAlignment="Center" VerticalAlignment="Center"
+              RowDefinitions="70,70,70,70,70,70,70" ColumnDefinitions="1*,1*"
+              RowSpacing="32" ColumnSpacing="58">
+            <Button Classes="file-option blue-option" Content="New Game" Click="NewGameButton_Click" />
+            <Button Classes="file-option green-option" Grid.Column="1" Content="Save Game" Click="SaveButton_Click" />
+
+            <Button Classes="file-option blue-option" Grid.Row="1" Content="About Gazillionaire" Click="AboutGazillionaireButton_Click" />
+            <Button Classes="file-option green-option" Grid.Row="1" Grid.Column="1" Content="Load Game" Click="LoadButton_Click" />
+
+            <Button Classes="file-option blue-option" Grid.Row="2" Content="About LavaMind" Click="AboutLavaMindButton_Click" />
+            <Button Classes="file-option green-option" Grid.Row="2" Grid.Column="1" Content="Full Screen Mode" Click="FullScreenButton_Click" />
+
+            <Button x:Name="ShortcutsButton" Classes="file-option blue-option" Grid.Row="3" Content="Shortcuts" Click="ShortcutsButton_Click" />
+            <Button x:Name="SoundButton" Classes="file-option green-option" Grid.Row="3" Grid.Column="1"
+                    Content="Sound On" Click="SoundButton_Click" />
+
+            <Button Classes="file-option blue-option" Grid.Row="4" Content="Event Debugger" Click="DebugEventsButton_Click" />
+            <Button Classes="file-option orange-option" Grid.Row="4" Grid.Column="1" Content="Quit Game" Click="QuitButton_Click" />
+
+            <Button Classes="file-option blue-option" Grid.Row="5" Grid.ColumnSpan="2" Content="Options" Click="OptionsButton_Click" />
+
+            <Button Classes="file-option orange-option" Grid.Row="6" Grid.ColumnSpan="2" Content="&lt;&lt; Back" Click="ContinueButton_Click" />
+        </Grid>
+        <Border x:Name="StatusPanel" IsVisible="False" Background="#D9000028" CornerRadius="10"
+                Padding="18,8" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
+            <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="16" TextAlignment="Center" />
+        </Border>
+    </Grid>
+</UserControl>

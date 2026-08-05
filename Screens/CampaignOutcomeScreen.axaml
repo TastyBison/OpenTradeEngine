@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.CampaignOutcomeScreen">
+    <Grid Background="#030303">
+        <Border Width="800" Padding="44" Background="#F0101014" BorderBrush="#EAA01C" BorderThickness="8"
+                CornerRadius="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="28">
+                <TextBlock x:Name="Heading" Foreground="#FFCB70" FontSize="42" FontWeight="Bold" TextAlignment="Center" />
+                <TextBlock x:Name="Body" Foreground="White" FontSize="23" TextWrapping="Wrap" TextAlignment="Center" />
+                <Button x:Name="ContinueGameButton" Content="Keep Playing" Height="60" Click="ContinueGameButton_Click" />
+                <Button Content="Return to Main Menu" Height="60" Click="MainMenuButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

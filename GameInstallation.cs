@@ -7,6 +7,7 @@ public sealed record GameInstallation(
     string RootPath,
     string MainSwfPath,
     string SwfDirectory,
+    string ResourcesDirectory,
     string PngDirectory,
     string Mp3Directory)
 {
@@ -16,6 +17,7 @@ public sealed record GameInstallation(
         var requiredDirectories = new Dictionary<string, string>
         {
             ["SWF"] = Path.Combine(rootPath, "SWF"),
+            ["resources"] = Path.Combine(rootPath, "resources"),
             ["PNG"] = Path.Combine(rootPath, "PNG"),
             ["MP3"] = Path.Combine(rootPath, "MP3")
         };
@@ -48,6 +50,7 @@ public sealed record GameInstallation(
                 Path.GetFullPath(rootPath),
                 requiredFile,
                 requiredDirectories["SWF"],
+                requiredDirectories["resources"],
                 requiredDirectories["PNG"],
                 requiredDirectories["MP3"]));
     }

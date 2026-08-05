@@ -3,12 +3,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        d:DesignWidth="1200"
-        d:DesignHeight="720"
+        d:DesignWidth="1140"
+        d:DesignHeight="900"
         x:Class="OpenTradeEngine.MainWindow"
         Title="OpenTradeEngine"
-        Width="1200"
-        Height="720"
+        Width="1140"
+        Height="900"
         MinWidth="800"
         MinHeight="600"
         Background="#050505"
@@ -82,6 +82,41 @@
                 <TextBlock x:Name="StatusTextBlock"
                            Text="No installation selected."
                            TextWrapping="Wrap" />
+
+                <CheckBox x:Name="EnableModsCheckBox"
+                          Content="Enable Mods"
+                          FontSize="16"
+                          IsChecked="True"
+                          IsCheckedChanged="EnableModsCheckBox_Changed" />
+                <TextBlock x:Name="LauncherModsStatusText"
+                           Text="Mods are loaded from the Mods folder beside OpenTradeEngine.exe."
+                           FontSize="13"
+                           Foreground="#AFAFC5"
+                           TextWrapping="Wrap" />
+
+                <CheckBox x:Name="EnableGameplayLoggingCheckBox"
+                          Content="Record complete gameplay debug log"
+                          FontSize="16"
+                          IsChecked="False"
+                          IsCheckedChanged="GameplayLoggingSetting_Changed" />
+                <StackPanel x:Name="GameplayLogLimitPanel"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                    <TextBlock Text="Maximum log storage:"
+                               VerticalAlignment="Center" />
+                    <ComboBox x:Name="GameplayLogLimitComboBox"
+                              Width="110"
+                              SelectionChanged="GameplayLoggingSetting_Changed">
+                        <ComboBoxItem Content="25 MB" Tag="25" />
+                        <ComboBoxItem Content="50 MB" Tag="50" />
+                        <ComboBoxItem Content="100 MB" Tag="100" />
+                        <ComboBoxItem Content="250 MB" Tag="250" />
+                    </ComboBox>
+                </StackPanel>
+                <TextBlock Text="Logs are plain text and rotate automatically in OpenTradeEngine's local logs folder."
+                           FontSize="13"
+                           Foreground="#AFAFC5"
+                           TextWrapping="Wrap" />
             </StackPanel>
 
             <Button x:Name="ContinueButton"
@@ -96,12 +131,11 @@
         <Grid x:Name="MainMenuPanel"
               IsVisible="False">
             <Image x:Name="MainMenuBackgroundImage"
-                   Stretch="UniformToFill"
-                   RenderTransformOrigin="50%,50%">
-                <Image.RenderTransform>
-                    <ScaleTransform ScaleX="-1" />
-                </Image.RenderTransform>
-            </Image>
+                   Stretch="UniformToFill" />
+            <Image x:Name="MainMenuPlanetImage"
+                   Width="720" Height="720" Margin="0,0,-170,-245"
+                   HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                   Stretch="Uniform" />
 
             <Rectangle Fill="#18000000" />
 
@@ -149,5 +183,9 @@
                 </Border>
             </Grid>
         </Grid>
+
+        <ContentControl x:Name="ScreenHost"
+                        IsVisible="False" />
+
     </Grid>
 </Window>

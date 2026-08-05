@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.TutorialScreen">
+    <Grid Background="#02022F">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.72" />
+        <Border Margin="105,55" Padding="48,34" Background="#F2FFFFFF"
+                BorderBrush="#666684" BorderThickness="9" CornerRadius="18">
+            <Grid RowDefinitions="Auto,Auto,*,Auto">
+                <TextBlock Text="Gazillionaire Tutorial" Foreground="#252559" FontSize="34"
+                           FontWeight="Bold" TextAlignment="Center" />
+                <StackPanel Grid.Row="1" Margin="55,18,55,24" Spacing="8">
+                    <TextBlock x:Name="ProgressText" Foreground="#35356A" FontSize="18"
+                               FontWeight="SemiBold" TextAlignment="Center" />
+                    <ProgressBar x:Name="ProgressBar" Minimum="0" Maximum="17" Height="22"
+                                 Foreground="#168DE0" Background="#D9D9E8" />
+                </StackPanel>
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="TutorialText" Foreground="#111111" FontSize="23"
+                               LineHeight="32" TextWrapping="Wrap" TextAlignment="Left" />
+                </ScrollViewer>
+                <Grid Grid.Row="3" Margin="55,26,55,0" ColumnDefinitions="*,24,*">
+                    <Button Grid.Column="0" Classes="main-menu" Content="Continue" Height="62"
+                            Click="ContinueButton_Click" />
+                    <Button x:Name="MoreButton" Grid.Column="2" Classes="main-menu"
+                            Content="Add New Feature" Height="62" Click="MoreButton_Click" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

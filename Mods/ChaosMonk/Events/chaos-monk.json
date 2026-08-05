@@ -1,0 +1,11 @@
+{
+  "id": "chaosmonk.bad-spirits",
+  "heading": "The Chaos Monk",
+  "message": "A mysterious Chaos Monk offers to send bad spirits after your competitors for {fee} kubars. The ritual is cheaper than ordinary industrial sabotage, but dark magic can be unpredictable.\n\nDo you accept the offer?",
+  "kind": "Good",
+  "chancePercent": 1,
+  "minWeek": 11,
+  "effect": "ChaosMonkSabotage",
+  "feePerShipTon": 5,
+  "image": "Assets/chaosmonk.png"
+}

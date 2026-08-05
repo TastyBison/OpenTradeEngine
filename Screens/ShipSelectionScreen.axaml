@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ShipSelectionScreen">
+    <UserControl.Styles>
+        <!-- Every available ship keeps the same permanent framed tile. Pointer,
+             pressed, and keyboard states must not add a separate highlight. -->
+        <Style Selector="Button.ship-choice">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderBrush" Value="#626278" />
+            <Setter Property="BorderThickness" Value="7" />
+            <Setter Property="CornerRadius" Value="16" />
+            <!-- The Fluent Button template draws its own pointer/focus overlay.
+                 Ship tiles deliberately use a fixed template so they remain
+                 clickable without ever gaining a visual highlight. -->
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.ship-choice:pointerover">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderBrush" Value="#626278" />
+        </Style>
+        <Style Selector="Button.ship-choice:pressed">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderBrush" Value="#626278" />
+        </Style>
+        <Style Selector="Button.ship-choice:focus">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="BorderBrush" Value="#626278" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#02022F">
+        <Grid RowDefinitions="Auto,Auto,*" Margin="20">
+            <TextBlock x:Name="CompanyHeading" Text="Player 1 Inc." Foreground="White"
+                       FontSize="31" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="1" Text="Click on the spaceship you wish to purchase:"
+                       Margin="0,16" Foreground="White" FontSize="22" HorizontalAlignment="Center" />
+            <Grid x:Name="ShipGrid" Grid.Row="2" ColumnDefinitions="*,18,*,18,*,18,*"
+                  RowDefinitions="*,18,*,18,*" />
+        </Grid>
+
+        <Rectangle x:Name="CompanyNameBackdrop" Fill="#94000000" />
+
+        <Border x:Name="CompanyNamePanel" Width="390" Height="360" Padding="42" Background="#F8F8F8"
+                BorderBrush="#4B4B70" BorderThickness="7" CornerRadius="16"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="32" VerticalAlignment="Center">
+                <TextBlock Text="Player 1" FontSize="20" FontWeight="Bold"
+                           Foreground="#28283A" HorizontalAlignment="Center" />
+                <TextBlock Text="Please name your company:" FontSize="18" Foreground="#3A3A4A" />
+                <TextBox x:Name="CompanyNameTextBox" Text="Player 1 Inc." FontSize="18"
+                         KeyDown="CompanyNameTextBox_KeyDown" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ExpensesScreen">
+    <Grid Background="#030303">
+        <Border Width="720" Padding="38" Background="#F0101014" BorderBrush="#555560" BorderThickness="7"
+                CornerRadius="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="22">
+                <TextBlock Text="Crew and Taxes" Foreground="White" FontSize="34" FontWeight="Bold" TextAlignment="Center" />
+                <TextBlock x:Name="CrewText" Foreground="#7DDAFF" FontSize="22" TextAlignment="Center" />
+                <TextBlock x:Name="TaxText" Foreground="#FFCB70" FontSize="22" TextAlignment="Center" />
+                <TextBlock Text="Crew wages accrue weekly. Passenger tax and commodity tariffs accrue as revenue is earned. Pay each account when cash is available; AI companies use the same payment operations."
+                           Foreground="#D8D8D8" FontSize="19" TextWrapping="Wrap" TextAlignment="Center" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <Button Classes="gameplay-footer" Content="Pay Crew" Click="PayCrewButton_Click" />
+                    <Button Classes="gameplay-footer" Grid.Column="1" Content="Pay All Taxes" Click="PayTaxesButton_Click" />
+                </Grid>
+                <TextBlock x:Name="StatusText" Foreground="#9FEA9F" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" />
+                <Button Classes="gameplay-footer" Content="Continue" Click="ContinueButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

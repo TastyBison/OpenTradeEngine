@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.AiPlayerCountScreen">
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" />
+        <Grid Margin="48,38" ColumnDefinitions="38*,42,62*">
+            <StackPanel Grid.Column="0" Spacing="12">
+                <Button Classes="main-menu" Content="Zero AI Players" Tag="0" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="One AI Player" Tag="1" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="Two AI Players" Tag="2" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="Three AI Players" Tag="3" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="Four AI Players" Tag="4" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="Five AI Players" Tag="5" Click="PlayerButton_Click" />
+                <Button Classes="main-menu" Content="Six AI Players" Tag="6" Click="PlayerButton_Click" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Spacing="30">
+                <TextBlock Text="How Many AI Players?" Foreground="White" FontSize="31"
+                           FontWeight="Bold" TextAlignment="Center" />
+                <TextBlock Foreground="White" FontSize="20" LineHeight="30" TextWrapping="Wrap"
+                           Text="Please select how many computer-controlled trading companies will compete in this game.&#10;&#10;AI companies will use the same ships, markets, expenses, events, and other game systems as human companies." />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

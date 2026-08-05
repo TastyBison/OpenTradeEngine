@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.CrewScreen">
+    <UserControl.Styles><Style Selector="Button"><Setter Property="HorizontalContentAlignment" Value="Center" /><Setter Property="VerticalContentAlignment" Value="Center" /></Style></UserControl.Styles>
+    <Grid Background="#05052B" Margin="50,62,38,50" ColumnDefinitions="50*,50*">
+        <Border Margin="0,0,38,0" Background="White" BorderBrush="#666675" BorderThickness="10" CornerRadius="14">
+            <Image x:Name="CrewImage" Margin="6" Stretch="Uniform" />
+        </Border>
+        <Grid Grid.Column="1" RowDefinitions="*,70">
+            <StackPanel Spacing="27">
+                <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Number of Employees (Crew)" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="CountText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Weekly Salary per Person" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="SalaryText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Total Wages Owed" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="OwedText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Your Cash" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="CashText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+                <TextBlock x:Name="MoraleText" Foreground="White" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Left" />
+                <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="17" TextWrapping="Wrap" TextAlignment="Center" />
+            </StackPanel>
+            <Grid Grid.Row="1" ColumnDefinitions="1.2*,1.2*,0.6*" Margin="0,10,0,0">
+                <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Margin="0,0,5,0" Click="ContinueButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="1" Content="Pay Crew" Margin="5" Click="PayButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="2" Margin="5,0,0,0" Click="HelpButton_Click"><Image x:Name="HelpIcon" Width="44" Height="44" /></Button>
+            </Grid>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.ColumnSpan="2" ZIndex="110" />
+    </Grid>
+</UserControl>

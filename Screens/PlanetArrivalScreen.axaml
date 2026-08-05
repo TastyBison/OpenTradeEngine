@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.PlanetArrivalScreen">
+    <Grid Background="Black">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" />
+        <Image x:Name="PlanetImage" Stretch="UniformToFill" />
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Width="500" Margin="0,168,70,0" Spacing="48">
+            <TextBlock x:Name="WelcomeText" Foreground="White" FontSize="43"
+                       FontWeight="Bold" TextAlignment="Center" />
+            <TextBlock x:Name="SubtitleText" Foreground="White" FontSize="25"
+                       FontWeight="Bold" TextAlignment="Center" />
+        </StackPanel>
+        <Button Background="Transparent" BorderThickness="0"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Click="ContinueButton_Click" />
+    </Grid>
+</UserControl>

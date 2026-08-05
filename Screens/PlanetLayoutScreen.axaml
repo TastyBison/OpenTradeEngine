@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.PlanetLayoutScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.planet-slot">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#020202" RowDefinitions="*,Auto">
+        <Image x:Name="StarsImage" Grid.RowSpan="2" Stretch="UniformToFill" />
+        <Viewbox Grid.Row="0" Stretch="Uniform">
+            <Canvas Width="1200" Height="720">
+                <Button x:Name="PlanetSlot0" Tag="0" Canvas.Left="30" Canvas.Top="10" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="150" Height="150" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot1" Tag="1" Canvas.Left="385" Canvas.Top="100" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="165" Height="165" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot2" Tag="2" Canvas.Left="940" Canvas.Top="0" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="150" Height="150" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot3" Tag="3" Canvas.Left="660" Canvas.Top="235" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="165" Height="165" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot4" Tag="4" Canvas.Left="155" Canvas.Top="400" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="150" Height="150" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot5" Tag="5" Canvas.Left="540" Canvas.Top="480" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="150" Height="150" Stretch="Uniform"/></StackPanel></Button>
+                <Button x:Name="PlanetSlot6" Tag="6" Canvas.Left="965" Canvas.Top="410" Classes="planet-slot" Click="PlanetButton_Click"><StackPanel><TextBlock Foreground="White" FontSize="22" TextAlignment="Center"/><Image Width="150" Height="150" Stretch="Uniform"/></StackPanel></Button>
+            </Canvas>
+        </Viewbox>
+        <Grid Grid.Row="1" Margin="80,10,80,28" ColumnDefinitions="*,40,*">
+            <Button Grid.Column="0" Classes="main-menu" Content="Continue" Height="64" FontSize="21" Click="ContinueButton_Click" />
+            <Button Grid.Column="2" Classes="main-menu" Content="Randomize Planets" Height="64" FontSize="21" Click="RandomizeButton_Click" />
+        </Grid>
+
+        <Border x:Name="SelectorPanel" Grid.RowSpan="2" IsVisible="False"
+                Background="#444476" BorderBrush="#262653" BorderThickness="8"
+                CornerRadius="16" Margin="105,52,105,155" Padding="12">
+            <Grid RowDefinitions="Auto,*">
+                <TextBlock x:Name="SelectorHeading" Foreground="White" FontSize="24"
+                           FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,12" />
+                <Grid x:Name="SelectorGrid" Grid.Row="1"
+                      ColumnDefinitions="*,18,*" RowDefinitions="*,10,*,10,*,10,*" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

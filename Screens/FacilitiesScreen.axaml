@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.FacilitiesScreen">
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.55" />
+        <Border Width="900" Height="650" Padding="36" Background="#F0101014" BorderBrush="#555560" BorderThickness="7"
+                CornerRadius="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid RowDefinitions="Auto,*,Auto">
+                <TextBlock Text="Privately Owned Facilities" Foreground="White" FontSize="36" FontWeight="Bold" TextAlignment="Center" />
+                <ScrollViewer Grid.Row="1" Margin="0,24" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="FacilityText" Foreground="#D8D8D8" FontSize="21" TextWrapping="Wrap" />
+                </ScrollViewer>
+                <Button Grid.Row="2" Classes="event-action" Content="Return to Galaxy Map"
+                        Width="360" HorizontalAlignment="Center" Click="ReturnButton_Click" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

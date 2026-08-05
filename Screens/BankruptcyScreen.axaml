@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.BankruptcyScreen">
+    <Grid Background="#020203">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.72" />
+
+        <Grid x:Name="AnnouncementPanel" Margin="55">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="22">
+                <Image x:Name="BankruptcyImage" Height="440" MaxWidth="760" Stretch="Uniform" />
+                <TextBlock x:Name="AnnouncementText" Foreground="White" FontSize="40" FontWeight="Bold"
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Text="click to continue" Foreground="#D6D6D6" FontSize="18" FontStyle="Italic"
+                           TextAlignment="Center" />
+                <Button Classes="event-action" Content="Continue" Width="260" HorizontalAlignment="Center"
+                        Click="ContinueButton_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="HeadlinePanel" Margin="42" ColumnDefinitions="0.9*,1.25*" ColumnSpacing="38" IsVisible="False">
+            <Border Padding="12" Background="#171723" BorderBrush="#77778A" BorderThickness="6" CornerRadius="16"
+                    VerticalAlignment="Center">
+                <Image x:Name="NewsImage" Height="510" Stretch="Uniform" />
+            </Border>
+            <Border Grid.Column="1" Padding="34" Background="#E90A0A0D" BorderBrush="#555568"
+                    BorderThickness="6" CornerRadius="16" VerticalAlignment="Center">
+                <Grid RowDefinitions="Auto,*,Auto" RowSpacing="24">
+                    <TextBlock Text="Headline News" Foreground="White" FontSize="34" FontWeight="Bold"
+                               TextAlignment="Center" />
+                    <TextBlock x:Name="HeadlineText" Grid.Row="1" Foreground="White" FontSize="21"
+                               LineHeight="29" TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <Button Grid.Row="2" Classes="event-action" Content="Continue"
+                            Click="ContinueButton_Click" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

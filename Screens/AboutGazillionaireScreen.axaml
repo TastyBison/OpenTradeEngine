@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1200"
+             d:DesignHeight="720"
+             x:Class="OpenTradeEngine.Screens.AboutGazillionaireScreen">
+
+    <UserControl.Styles>
+        <Style Selector="Button.about-ok">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="58" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderBrush" Value="#606060" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#505050" />
+                    <GradientStop Offset="1" Color="#252525" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.about-ok:pointerover">
+            <Setter Property="Background" Value="#606060" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" />
+        <Rectangle Fill="#2A000000" />
+
+        <Grid Margin="18"
+              ColumnDefinitions="54*,46*"
+              ColumnSpacing="30">
+
+            <Border Grid.Column="0"
+                    Background="#91919D"
+                    BorderBrush="#4B4B62"
+                    BorderThickness="5"
+                    CornerRadius="17"
+                    Padding="12">
+                <Border Background="White"
+                        CornerRadius="11"
+                        Padding="5">
+                    <Image x:Name="GazillionaireInfoImage"
+                           Stretch="Uniform" />
+                </Border>
+            </Border>
+
+            <Grid Grid.Column="1"
+                  RowDefinitions="*,Auto"
+                  RowSpacing="16">
+                <ScrollViewer Grid.Row="0"
+                              VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Spacing="22">
+                        <TextBlock Text="About Gazillionaire"
+                                   Foreground="White"
+                                   FontSize="29"
+                                   FontWeight="Bold"
+                                   TextAlignment="Center" />
+
+                        <TextBlock Foreground="White"
+                                   FontSize="17"
+                                   LineHeight="26"
+                                   TextWrapping="Wrap"
+                                   Text="Gazillionaire&#10;© 1994 - 2020 LavaMind LLC.  All rights reserved.&#10;&#10;Produced by Naomi Kokubo&#10;&#10;Programmed by Adrian Tymes and Skylar Hoffman&#10;&#10;UI by Naomi Kokubo&#10;&#10;Art by Steven Hoffman &amp; Naomi Kokubo&#10;&#10;Contributing Artists &amp; Musicians:&#10;    Judy Wilson&#10;    Rhode Montijo&#10;    Mikako Endo&#10;    Alex Igoudin&#10;&#10;Original Version&#10;&#10;Designed &amp; Produced by&#10;    Steven Hoffman&#10;    Naomi Kokubo&#10;&#10;Written &amp; Programmed by Steven Hoffman" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="1" Spacing="8">
+                    <TextBlock x:Name="LoadErrorTextBlock"
+                               IsVisible="False"
+                               Foreground="#FF8080"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center" />
+                    <Button Classes="about-ok"
+                            Content="OK"
+                            HorizontalAlignment="Center"
+                            Click="OkButton_Click" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

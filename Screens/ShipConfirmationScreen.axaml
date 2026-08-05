@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ShipConfirmationScreen">
+    <Grid Background="#02022F" RowDefinitions="Auto,*,Auto,Auto">
+        <TextBlock x:Name="ShipHeading" Foreground="White" FontSize="32" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,26,0,0" />
+        <Border Grid.Row="1" Width="650" Margin="0,18" Background="Black" BorderBrush="#64647A"
+                BorderThickness="7" CornerRadius="12" HorizontalAlignment="Center">
+            <Image x:Name="ShipImage" Stretch="Uniform" />
+        </Border>
+        <TextBlock x:Name="ShipDescription" Grid.Row="2" Width="650" Foreground="White"
+                   FontSize="18" LineHeight="26" TextWrapping="Wrap" />
+        <Grid Grid.Row="3" Width="650" Margin="0,20,0,0" ColumnDefinitions="*,12,*">
+            <Button Grid.Column="0" Classes="main-menu" Content="Yes" Height="62" FontSize="21" Click="YesButton_Click" />
+            <Button Grid.Column="2" Classes="main-menu" Content="No" Height="62" FontSize="21" Click="NoButton_Click" />
+        </Grid>
+    </Grid>
+</UserControl>

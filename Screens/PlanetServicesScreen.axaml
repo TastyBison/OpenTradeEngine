@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.PlanetServicesScreen">
+    <Grid Background="#05043B">
+        <Grid Margin="44,66,44,64" ColumnDefinitions="48*,52*" ColumnSpacing="24" RowDefinitions="*,66">
+            <Border Grid.RowSpan="2" Background="#92929F" BorderBrush="#6D6D7D" BorderThickness="7"
+                    CornerRadius="15" Padding="12">
+                <Border Background="White" CornerRadius="11" Padding="10">
+                    <Image x:Name="Illustration" Stretch="Uniform" />
+                </Border>
+            </Border>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="10,0,0,16">
+                <StackPanel Spacing="24">
+                    <TextBlock x:Name="Heading" Foreground="White" FontSize="31" FontWeight="Bold"
+                               TextAlignment="Center" />
+                    <TextBlock x:Name="Description" Foreground="White" FontSize="20" LineHeight="29"
+                               TextWrapping="Wrap" />
+                    <TextBlock x:Name="EngineText" IsVisible="False" />
+                    <TextBlock x:Name="StatusText" Foreground="#91FF4B" FontSize="20" LineHeight="29"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                </StackPanel>
+            </ScrollViewer>
+
+            <Grid Grid.Column="1" Grid.Row="1" ColumnDefinitions="*,14,*,14,76">
+                <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Click="ContinueButton_Click" />
+                <StackPanel x:Name="ActionButtons" Grid.Column="2" />
+                <Button Classes="gameplay-footer" Grid.Column="4" Content="?" FontSize="27"
+                        Foreground="#FFD51C" Click="HelpButton_Click" />
+            </Grid>
+        </Grid>
+
+        <Border x:Name="HelpOverlay" Width="650" Padding="28" IsVisible="False"
+                Background="#F6FFFFFF" BorderBrush="#6D6D7D" BorderThickness="9" CornerRadius="16"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="22">
+                <TextBlock Foreground="#222222" FontSize="20" TextWrapping="Wrap"
+                           Text="Each planet has a special institution or contact. You may complete one Planet Special per game week. The outcome can help or hurt your company." />
+                <Button Classes="gameplay-footer" Content="OK" Width="220" HorizontalAlignment="Center"
+                        Click="CloseHelpButton_Click" />
+            </StackPanel>
+        </Border>
+        <local:NumericEntryOverlay x:Name="AmountEntry" ZIndex="100" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.ShipInfoScreen">
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.6" />
+        <Grid Margin="70" ColumnDefinitions="1.1*,1.5*">
+            <Border Background="Black" BorderBrush="#555560" BorderThickness="7" CornerRadius="18" Padding="24">
+                <Image x:Name="ShipImage" Stretch="Uniform" />
+            </Border>
+            <Border Grid.Column="1" Margin="24,0,0,0" Background="#F0101014" BorderBrush="#555560"
+                    BorderThickness="7" CornerRadius="18" Padding="34">
+                <StackPanel Spacing="14">
+                    <TextBlock Text="Ship Information" Foreground="White" FontSize="35" FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock x:Name="CompanyText" Foreground="#7DDAFF" FontSize="24" FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock x:Name="StatsText" Foreground="White" FontSize="21" TextWrapping="Wrap" />
+                    <UniformGrid Columns="2" Rows="4">
+                        <Button Tag="size" Content="Ship Size" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="larger" Content="Purchase Larger Ship" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="tank" Content="Fuel Tank Size" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="crew" Content="Crew" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="engine" Content="Engine" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="passengers" Content="Passenger Capacity" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="cargo" Content="Cargo Capacity" Height="54" Margin="4" Click="DetailButton_Click" />
+                        <Button Tag="fuel" Content="Fuel Usage" Height="54" Margin="4" Click="DetailButton_Click" />
+                    </UniformGrid>
+                    <Grid ColumnDefinitions="*,12,86">
+                        <Button Content="&lt;&lt; Back" Height="56" Background="#44444C" Click="ReturnButton_Click" />
+                        <Button Grid.Column="2" Content="?" Height="56" FontSize="27" Foreground="#FFD51C" Click="HelpButton_Click" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

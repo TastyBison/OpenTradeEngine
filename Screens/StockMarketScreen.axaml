@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.StockMarketScreen">
+    <Grid Background="#05052B" RowDefinitions="*,74">
+        <Grid Margin="24,18,22,8" ColumnDefinitions="4.25*,1.05*">
+            <Border Background="#46467C" BorderBrush="#202052" BorderThickness="7" CornerRadius="17" Padding="8">
+                <Grid RowDefinitions="54,*">
+                    <TextBlock x:Name="ChartTitle" Text="Planetary Stock Market: All Exchanges"
+                               Foreground="White" FontSize="25" FontWeight="Bold"
+                               TextAlignment="Center" VerticalAlignment="Center" />
+                    <Border Grid.Row="1" Background="#FCFCFC" CornerRadius="10" Padding="8">
+                        <Canvas x:Name="ChartCanvas" Background="#FCFCFC" SizeChanged="ChartCanvas_SizeChanged" />
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1" Margin="22,8,0,4" RowDefinitions="Auto,*,Auto">
+                <TextBlock x:Name="ExchangeNameText" Foreground="White" FontSize="24" FontWeight="Bold"
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <StackPanel Grid.Row="1" Spacing="28" VerticalAlignment="Center">
+                    <TextBlock x:Name="ExchangeStateText" Foreground="LightBlue" FontSize="14"
+                               TextAlignment="Center" TextWrapping="Wrap" />
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Current Price:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="CurrentPriceText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Price You Paid:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="PaidPriceText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Shares You Own:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="SharesOwnedText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Cash:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="CashText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Bank:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="BankText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Spacing="3">
+                        <TextBlock Text="Loan:" Foreground="White" FontSize="19" TextAlignment="Center" />
+                        <TextBlock x:Name="LoanText" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock x:Name="StatusText" Grid.Row="2" Foreground="LightGreen" FontSize="15"
+                           TextAlignment="Center" TextWrapping="Wrap" MinHeight="38" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="24,0,22,14" ColumnDefinitions="1.15*,1.25*,1.25*,1.55*,1.4*,1.55*,74" ColumnSpacing="4">
+            <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Click="ContinueButton_Click" />
+            <Button x:Name="BuyButton" Classes="gameplay-footer" Grid.Column="1" Content="Buy" Click="BuyButton_Click" />
+            <Button x:Name="SellButton" Classes="gameplay-footer" Grid.Column="2" Content="Sell" Click="SellButton_Click" />
+            <Button x:Name="ShowLocalButton" Classes="gameplay-footer" Grid.Column="3" Click="ShowLocalButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="4" Content="Show All" Click="ShowAllButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="5" Content="Show Shares" Click="ShowSharesButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="6" Padding="6" Click="HelpButton_Click">
+                <Image x:Name="HelpIcon" Stretch="Uniform" />
+            </Button>
+        </Grid>
+        <local:NumericEntryOverlay x:Name="AmountEntry" Grid.RowSpan="2" ZIndex="100" />
+    </Grid>
+</UserControl>

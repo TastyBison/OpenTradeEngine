@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.InformationOverlay"
+             IsVisible="False">
+    <Grid Background="#99000000">
+        <Border Width="650" Height="570" Background="#45427C" CornerRadius="16" Padding="8"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid RowDefinitions="42,*">
+                <Button Grid.Row="0" Content="×" Width="42" Height="42" Padding="0" FontSize="28"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" />
+                <Border Grid.Row="1" Background="White" CornerRadius="12" Padding="36,26">
+                    <Grid>
+                        <TextBlock x:Name="TitleText" Foreground="#222222" FontSize="24" FontWeight="Bold"
+                                   TextAlignment="Center" VerticalAlignment="Top" />
+                        <ScrollViewer Margin="0,54,0,62" VerticalScrollBarVisibility="Auto">
+                            <TextBlock x:Name="BodyText" Foreground="#222222" FontSize="19" LineHeight="27"
+                                       TextWrapping="Wrap" />
+                        </ScrollViewer>
+                        <Button Content="OK" Width="180" Height="42" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                Click="CloseButton_Click" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

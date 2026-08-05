@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.QuickOptionsScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.quick-option">
+            <Setter Property="Height" Value="39" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="BorderBrush" Value="#35B8F5" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#37ADEB" />
+                    <GradientStop Offset="1" Color="#0874CE" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.bottom-option">
+            <Setter Property="Height" Value="58" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderBrush" Value="#FFC033" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#F6B62D" />
+                    <GradientStop Offset="1" Color="#D97800" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#020202">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" Opacity="0.76" />
+        <Grid Margin="78,18,78,20" RowDefinitions="*,64" ColumnDefinitions="250,*" ColumnSpacing="18" RowSpacing="14">
+            <StackPanel x:Name="OptionsPanel" Spacing="4" VerticalAlignment="Center" />
+            <Border Grid.Column="1" Background="#D92B2B2B" CornerRadius="14" Padding="24,8">
+                <StackPanel x:Name="DescriptionsPanel" Spacing="4" VerticalAlignment="Center" />
+            </Border>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" ColumnDefinitions="1*,1*,1*" ColumnSpacing="12">
+                <Button Classes="bottom-option" Content="&lt;&lt; Back" Click="ContinueButton_Click" />
+                <Button Classes="bottom-option" Grid.Column="1" Content="Toggle All" Click="ToggleAllButton_Click" />
+                <Button Classes="bottom-option" Grid.Column="2" Click="HelpButton_Click">
+                    <Image x:Name="HelpIcon" Width="45" Height="45" Stretch="Uniform" />
+                </Button>
+            </Grid>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

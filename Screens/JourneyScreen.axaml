@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.JourneyScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.planet-map">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="Button.planet-map:pointerover">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="Button.journey-footer">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#030303" RowDefinitions="*,70">
+        <Image x:Name="StarsImage" Grid.RowSpan="2" Stretch="UniformToFill" Opacity="0.82" />
+        <Canvas x:Name="PlanetCanvas" Margin="14,6,14,0" SizeChanged="PlanetCanvas_SizeChanged" />
+        <Grid Grid.Row="1" Margin="14,0,14,12" ColumnDefinitions="1.05*,1.1*,1.1*,74" ColumnSpacing="12">
+            <Button Classes="journey-footer gameplay-footer" Content="Main Menu" Click="ReturnButton_Click" />
+            <Button x:Name="DistanceButton" Classes="journey-footer gameplay-footer" Grid.Column="1" Content="Distance Chart" Click="DistanceButton_Click" />
+            <Button x:Name="FacilitiesButton" Classes="journey-footer gameplay-footer" Grid.Column="2" Content="Facilities Chart" Click="FacilitiesButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="3" Padding="5" Click="HelpButton_Click">
+                <Image x:Name="HelpIcon" Stretch="Uniform" />
+            </Button>
+        </Grid>
+        <local:ConfirmationOverlay x:Name="CreditWarning" Grid.RowSpan="2" ZIndex="100" />
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.RowSpan="2" ZIndex="110" />
+    </Grid>
+</UserControl>

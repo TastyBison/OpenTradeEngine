@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.SaveSlotsScreen">
+    <Grid Background="#05052B">
+        <StackPanel Width="720" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="14">
+            <TextBlock x:Name="Heading" Foreground="White" FontSize="34" FontWeight="Bold"
+                       TextAlignment="Center" Margin="0,0,0,18" />
+            <StackPanel x:Name="SlotButtons" Spacing="10" />
+            <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="17" TextAlignment="Center" MinHeight="24" />
+            <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Height="58" Click="BackButton_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ZinnFinancingScreen">
+    <Grid Background="#02022F" ColumnDefinitions="52*,48*">
+        <Border Grid.Column="0" Margin="50,55,0,55" Background="#91919D" BorderBrush="#4B4B62"
+                BorderThickness="5" CornerRadius="17" Padding="12">
+            <Border Background="White" CornerRadius="11">
+                <Image x:Name="ZinnImage" Stretch="Uniform" />
+            </Border>
+        </Border>
+        <Grid Grid.Column="1" Margin="55,70,75,55" RowDefinitions="*,Auto">
+            <TextBlock x:Name="FinancingText" Foreground="White" FontSize="20"
+                       LineHeight="30" TextWrapping="Wrap" />
+            <Button Grid.Row="1" Classes="main-menu" Content="OK" Height="64" FontSize="21"
+                    Click="OkButton_Click" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.DistanceChartScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.planet-choice">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Padding" Value="2" />
+        </Style>
+        <Style Selector="Button.planet-choice:pointerover">
+            <Setter Property="Background" Value="#221F2750" />
+            <Setter Property="BorderBrush" Value="#7774B6" />
+        </Style>
+        <Style Selector="Button.planet-choice.selected">
+            <Setter Property="Background" Value="#160F1030" />
+            <Setter Property="BorderBrush" Value="#7774B6" />
+        </Style>
+        <Style Selector="TextBlock.chart-cell">
+            <Setter Property="Foreground" Value="#242424" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="TextBlock.chart-head">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#030303" RowDefinitions="*,72">
+        <Image x:Name="StarsImage" Grid.RowSpan="2" Stretch="UniformToFill" Opacity="0.82" />
+
+        <Grid Margin="14,10,14,4" ColumnDefinitions="230,*" ColumnSpacing="18">
+            <StackPanel x:Name="PlanetList" Spacing="0" />
+
+            <Grid Grid.Column="1" RowDefinitions="58,*">
+                <TextBlock x:Name="TitleText" Foreground="#AAA8FF" FontSize="29" FontWeight="Bold"
+                           TextAlignment="Center" VerticalAlignment="Center" />
+                <Border Grid.Row="1" Background="#100A4E" BorderBrush="#11105A" BorderThickness="8"
+                        CornerRadius="15" Padding="7">
+                    <Grid RowDefinitions="58,*">
+                        <Border Background="#44417D" CornerRadius="7,7,0,0">
+                            <Grid x:Name="HeaderGrid" Margin="22,0" />
+                        </Border>
+                        <Border Grid.Row="1" Background="White" CornerRadius="0,0,8,8" Padding="28,12">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel x:Name="ChartRows" Spacing="0" />
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="14,0,14,12" ColumnDefinitions="1.05*,1.1*,1.1*,74" ColumnSpacing="12">
+            <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Click="ReturnButton_Click" />
+            <Button x:Name="DistanceButton" Classes="gameplay-footer" Grid.Column="1" Content="Distance Chart"
+                    Click="DistanceButton_Click" />
+            <Button x:Name="FacilitiesButton" Classes="gameplay-footer" Grid.Column="2" Content="Facilities Chart"
+                    Click="FacilitiesButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="3" Padding="5" Click="HelpButton_Click">
+                <Image x:Name="HelpIcon" Stretch="Uniform" />
+            </Button>
+        </Grid>
+
+        <Border x:Name="HelpOverlay" Grid.RowSpan="2" Width="650" Padding="28" IsVisible="False"
+                Background="#F6FFFFFF" BorderBrush="#44417D" BorderThickness="9" CornerRadius="16"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="22">
+                <TextBlock x:Name="HelpText" Foreground="#222222" FontSize="20" TextWrapping="Wrap" />
+                <Button Classes="event-action" Content="OK" Width="220"
+                        HorizontalAlignment="Center" Click="CloseHelpButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

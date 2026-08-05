@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.PlanetExploreScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.explore-footer">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#05052B" RowDefinitions="*,70">
+        <Grid Margin="16,16,16,6" ColumnDefinitions="58,*,58" MaxWidth="1120" HorizontalAlignment="Center">
+            <StackPanel Spacing="14" VerticalAlignment="Stretch">
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+            </StackPanel>
+            <Border Grid.Column="1" Margin="10,0" Background="White" BorderBrush="#EFEFF6"
+                    BorderThickness="7" CornerRadius="13" ClipToBounds="True">
+                <Image x:Name="PlanetImage" Stretch="Uniform" />
+            </Border>
+            <StackPanel Grid.Column="2" Spacing="14" VerticalAlignment="Stretch">
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+                <Border Height="45" Background="#111451" CornerRadius="8" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="16,0,16,12" ColumnDefinitions="1.12*,1.12*,1.12*,1.12*,1.12*,1.22*,70" ColumnSpacing="4">
+            <Button Classes="explore-footer gameplay-footer" Content="&lt;&lt; Back" Click="ReturnButton_Click" />
+            <Button Classes="explore-footer gameplay-footer" Grid.Column="1" Content="Special" Click="SpecialButton_Click" />
+            <Button Classes="explore-footer gameplay-footer" Grid.Column="2" Content="Weather" Click="WeatherButton_Click" />
+            <Button Classes="explore-footer gameplay-footer" Grid.Column="3" Content="News" Click="NewsButton_Click" />
+            <Button Classes="explore-footer gameplay-footer" Grid.Column="4" Content="Time" Click="TimeButton_Click" />
+            <Button x:Name="AboutButton" Classes="explore-footer gameplay-footer" Grid.Column="5" Click="AboutButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="6" Padding="5" Click="HelpButton_Click">
+                <Image x:Name="HelpIcon" Stretch="Uniform" />
+            </Button>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,153 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.OpeningTurnScreen">
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Focusable" Value="False" />
+        </Style>
+        <Style Selector="Button.finance">
+            <Setter Property="CornerRadius" Value="11" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#32A9E8" />
+                    <GradientStop Offset="1" Color="#0873C8" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.trade">
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#F4B234" />
+                    <GradientStop Offset="1" Color="#DB8500" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.service">
+            <Setter Property="CornerRadius" Value="11" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#82C52A" />
+                    <GradientStop Offset="1" Color="#4C9600" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" />
+        <Grid Margin="6" ColumnDefinitions="40*,50*,10*">
+            <Grid Grid.Column="0" RowDefinitions="373,*" Margin="0,0,0,25">
+                <Button Background="Black" BorderBrush="#474750" BorderThickness="8" CornerRadius="16"
+                        Padding="0" Height="350" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                        Click="JourneyButton_Click" ToolTip.Tip="Choose a destination">
+                    <Image x:Name="PlanetImage" Stretch="Uniform" Margin="20" MaxWidth="340" MaxHeight="340" />
+                </Button>
+                <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*,*">
+                    <Button x:Name="JourneyButton" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="JourneyButton_Click">
+                        <TextBlock x:Name="JourneyText" TextAlignment="Center" />
+                    </Button>
+                    <Button x:Name="StockMarketButton" Grid.Row="1" Classes="finance" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="StockMarketButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="StockIcon" Width="40" Height="34" Stretch="Uniform" /><TextBlock Text="Stock Market" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="MoneyButton" Grid.Row="2" Classes="finance" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="FinanceButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="MoneyIcon" Width="40" Height="34" Stretch="Uniform" /><TextBlock x:Name="MoneyText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="BankButton" Grid.Row="3" Classes="finance" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="FinanceButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="BankIcon" Width="40" Height="34" Stretch="Uniform" /><TextBlock x:Name="BankText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="LoanButton" Grid.Row="4" Classes="finance" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="FinanceButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="LoanIcon" Width="40" Height="34" Stretch="Uniform" /><TextBlock x:Name="LoanText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="ZinnLoanButton" Grid.Row="5" Classes="finance" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="FinanceButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="ZinnIcon" Width="40" Height="34" Stretch="Uniform" /><TextBlock x:Name="ZinnLoanText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="7,0,7,25" RowDefinitions="98,186,*">
+                <TextBlock x:Name="CompanyHeading" Foreground="White" FontSize="31" FontWeight="Bold"
+                           TextAlignment="Center" VerticalAlignment="Center" />
+                <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
+                    <Button Classes="trade" Margin="3" FontSize="22" HorizontalAlignment="Stretch" Click="MarketplaceButton_Click">
+                        <StackPanel Spacing="8"><Image x:Name="MarketIcon" Width="96" Height="88" Stretch="Uniform" /><TextBlock Text="Marketplace" TextAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="SupplyButton" Grid.Column="1" Classes="trade" Margin="3" FontSize="22" HorizontalAlignment="Stretch" Click="SupplyButton_Click">
+                        <StackPanel Spacing="8"><Image x:Name="SupplyIcon" Width="96" Height="88" Stretch="Uniform" /><TextBlock Text="Supply" TextAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="WarehouseButton" Grid.Column="2" Classes="trade" Margin="3" FontSize="22" HorizontalAlignment="Stretch" Click="WarehouseButton_Click">
+                        <StackPanel Spacing="8"><Image x:Name="WarehouseIcon" Width="96" Height="88" Stretch="Uniform" /><TextBlock Text="Warehouse" TextAlignment="Center" /></StackPanel>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="2" RowDefinitions="*,*,*,*,*,*,*">
+                    <Button x:Name="PassengerButton" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="PassengerButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="PassengerIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock x:Name="PassengerText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="AdvertisingButton" Grid.Row="1" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="AdvertisingButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="AdvertisingIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock Text="Advertise for Next Planet" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="CrewButton" Grid.Row="2" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="CrewButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="CrewIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock x:Name="CrewText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="TaxesButton" Grid.Row="3" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="TaxesButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="TaxIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock x:Name="TaxesText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="InsuranceButton" Grid.Row="4" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="InsuranceButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="InsuranceIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock x:Name="InsuranceText" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button x:Name="ExploreButton" Grid.Row="5" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="ExploreButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="ExploreIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock Text="Explore Planet" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                    <Button Grid.Row="6" Classes="service" Margin="0,2" FontSize="22" HorizontalAlignment="Stretch" Click="FileOptionsButton_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="14"><Image x:Name="FileIcon" Width="38" Height="34" Stretch="Uniform" /><TextBlock Text="File Options" VerticalAlignment="Center" /></StackPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2" RowDefinitions="*,77" Margin="0,17,0,0">
+                <Border x:Name="FuelPanel" Background="#303038" CornerRadius="15"
+                        Cursor="Hand" PointerPressed="FuelPanel_PointerPressed">
+                    <Grid Margin="7" RowDefinitions="Auto,Auto,52,*,Auto">
+                        <TextBlock Text="Fuel Cost" Foreground="White" FontSize="15" TextAlignment="Center" />
+                        <TextBlock x:Name="FuelPriceText" Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" TextAlignment="Center" Margin="0,5,0,0" />
+                        <Image x:Name="FuelIcon" Grid.Row="2" Width="45" Height="45" Stretch="Uniform" />
+                        <Border Grid.Row="3" Background="#F4FFFD" BorderBrush="#B8D5D8" BorderThickness="1"
+                                CornerRadius="30" Margin="13,5,13,8" ClipToBounds="True">
+                            <Grid>
+                                <Border Background="#F4FFFD" />
+                                <Border x:Name="FuelLevelFill" VerticalAlignment="Stretch" RenderTransformOrigin="50%,100%">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                            <GradientStop Offset="0" Color="#7FE8FF" />
+                                            <GradientStop Offset="0.55" Color="#19BFFF" />
+                                            <GradientStop Offset="1" Color="#59D9FF" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Border.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </Border.RenderTransform>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <Button x:Name="FuelButton" Grid.Row="4" Margin="1,5" Padding="3,9"
+                                IsHitTestVisible="False" />
+                    </Grid>
+                </Border>
+                <Button Grid.Row="1" Background="#303038" CornerRadius="14" Margin="0,4,0,0"
+                        Padding="5" Click="HelpButton_Click">
+                    <Image x:Name="HelpIcon" Width="54" Height="54" Stretch="Uniform" />
+                </Button>
+            </Grid>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

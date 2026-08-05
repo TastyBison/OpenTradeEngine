@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.AdvertisingScreen">
+    <UserControl.Styles>
+        <Style Selector="Button"><Setter Property="Focusable" Value="False" /></Style>
+        <Style Selector="Button.ad-level">
+            <Setter Property="Height" Value="72" />
+            <Setter Property="Background" Value="#FAFAFA" />
+            <Setter Property="Foreground" Value="#252525" />
+            <Setter Property="BorderBrush" Value="#66667A" />
+            <Setter Property="BorderThickness" Value="5" />
+            <Setter Property="CornerRadius" Value="7" />
+            <Setter Property="FontSize" Value="19" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#05052B">
+        <Grid Width="1000" Height="690" ColumnDefinitions="430,34,536"
+              HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="0" RowDefinitions="64,12,*">
+                <Grid Grid.Row="0" ColumnDefinitions="*,10,*">
+                    <Button x:Name="PassengerTab" Grid.Column="0" Content="Passenger" FontSize="23"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                            FontWeight="Bold" Click="PassengerTab_Click" />
+                    <Button x:Name="CommodityTab" Grid.Column="2" Content="Commodity" FontSize="23"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                            FontWeight="Bold" Click="CommodityTab_Click" />
+                </Grid>
+                <StackPanel Grid.Row="2" Spacing="8">
+                    <Button x:Name="Level0Button" Classes="ad-level" Tag="0" Content="Do Not Advertise" Click="LevelButton_Click" />
+                    <Button x:Name="Level1Button" Classes="ad-level" Tag="1" Content="Fliers" Click="LevelButton_Click" />
+                    <Button x:Name="Level2Button" Classes="ad-level" Tag="2" Content="Newspaper" Click="LevelButton_Click" />
+                    <Button x:Name="Level3Button" Classes="ad-level" Tag="3" Content="Magazine" Click="LevelButton_Click" />
+                    <Button x:Name="Level4Button" Classes="ad-level" Tag="4" Content="Radio" Click="LevelButton_Click" />
+                    <Button x:Name="Level5Button" Classes="ad-level" Tag="5" Content="TV" Click="LevelButton_Click" />
+                    <Button x:Name="Level6Button" Classes="ad-level" Tag="6" Content="Everything" Click="LevelButton_Click" />
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Column="2" Spacing="28">
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Advertising For Next Planet" Foreground="White" FontSize="22"
+                                   TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,12" Background="#B9F0FF" CornerRadius="7">
+                            <TextBlock x:Name="CampaignText" Foreground="#202020" FontSize="23"
+                                       TextAlignment="Center" TextWrapping="Wrap" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Passenger Advertising" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,12" Background="#B9F0FF" CornerRadius="7">
+                            <TextBlock x:Name="PassengerText" Foreground="#202020" FontSize="23" TextAlignment="Center" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Commodity Advertising" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,12" Background="#B9F0FF" CornerRadius="7">
+                            <TextBlock x:Name="CommodityText" Foreground="#202020" FontSize="23" TextAlignment="Center" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5">
+                        <TextBlock Text="Your Cash" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,12" Background="#B9F0FF" CornerRadius="7">
+                            <TextBlock x:Name="CashText" Foreground="#202020" FontSize="23" TextAlignment="Center" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <TextBlock Text="Choose advertising and click on Place Ads to advertise for the next planet."
+                           Foreground="White" FontSize="18" TextWrapping="Wrap" />
+                <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="17" TextWrapping="Wrap"
+                           TextAlignment="Center" MinHeight="24" />
+                <Grid ColumnDefinitions="*,12,*,12,72">
+                    <Button Grid.Column="0" Classes="gameplay-footer" Content="&lt;&lt; Back" Click="BackButton_Click" />
+                    <Button Grid.Column="2" Classes="gameplay-footer" Content="Place Ads"
+                            Click="PlaceAdsButton_Click" />
+                    <Button Grid.Column="4" Classes="gameplay-footer" Click="HelpButton_Click">
+                        <Image x:Name="HelpIcon" Width="46" Height="46" Stretch="Uniform" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

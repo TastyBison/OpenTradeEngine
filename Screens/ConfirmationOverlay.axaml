@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ConfirmationOverlay"
+             IsVisible="False">
+    <Grid Background="#66000000">
+        <Border Width="540" MinHeight="390" Padding="7" Background="#414078" CornerRadius="18"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid RowDefinitions="45,*">
+                <Button Width="32" Height="32" Margin="0,2,0,0"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Padding="0" CornerRadius="16" Background="White" Foreground="#626273"
+                        FontSize="24" FontWeight="Bold" Content="&#x00D7;" Click="CancelButton_Click" />
+                <Border Grid.Row="1" Padding="48,34,48,30" Background="White" CornerRadius="10">
+                    <Grid RowDefinitions="Auto,*,Auto" RowSpacing="26">
+                        <TextBlock x:Name="HeadingText" Foreground="#2E2E2E" FontSize="20"
+                                   FontWeight="SemiBold" TextAlignment="Center" />
+                        <TextBlock x:Name="MessageText" Grid.Row="1" Foreground="#333333" FontSize="18"
+                                   LineHeight="25" TextWrapping="Wrap" VerticalAlignment="Center" />
+                        <Grid Grid.Row="2" ColumnDefinitions="*,18,*">
+                            <Button x:Name="YesButton" Height="40" Padding="12,3" CornerRadius="8"
+                                    Background="#414078" Foreground="White" FontSize="18" FontWeight="Bold"
+                                    Click="YesButton_Click" />
+                            <Button x:Name="NoButton" Grid.Column="2" Height="40" Padding="12,3" CornerRadius="8"
+                                    Background="#414078" Foreground="White" FontSize="18" FontWeight="Bold"
+                                    Click="NoButton_Click" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

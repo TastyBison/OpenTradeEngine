@@ -1,0 +1,8 @@
+{
+  "name": "Chaos Monk",
+  "version": "1.0.0",
+  "author": "OpenTradeEngine",
+  "description": "Adds a cheaper sabotage offer that attacks competitors' luck with private warnings from Ooom.",
+  "enabled": true,
+  "priority": 0
+}

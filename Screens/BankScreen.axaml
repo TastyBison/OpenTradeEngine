@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.BankScreen">
+    <Grid Background="#05052B">
+        <Grid Margin="58,48,58,18" RowDefinitions="*,72" ColumnDefinitions="470,60,*">
+            <Border Grid.Column="0" Background="#F8F8F8" BorderBrush="#686879" BorderThickness="10"
+                    CornerRadius="14" Padding="12">
+                <Grid RowDefinitions="*,Auto">
+                    <Image x:Name="ManagerImage" Stretch="Uniform" />
+                    <TextBlock Grid.Row="1" Text="Bank Manager" Foreground="#666666" FontSize="24"
+                               FontWeight="Bold" TextAlignment="Center" Margin="0,8,0,8" />
+                </Grid>
+            </Border>
+            <StackPanel Grid.Column="2" Spacing="28" VerticalAlignment="Center">
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5"><TextBlock Text="Your Account Balance" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,14" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="BalanceText" Foreground="#202020" FontSize="24" TextAlignment="Center" /></Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5"><TextBlock Text="Your Interest Rate" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,14" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="RateText" Foreground="#202020" FontSize="24" TextAlignment="Center" /></Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5"><TextBlock Text="Interest Earned (Last Week):" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,14" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="InterestText" Foreground="#202020" FontSize="24" TextAlignment="Center" /></Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7">
+                    <StackPanel Spacing="5"><TextBlock Text="Your Cash" Foreground="White" FontSize="22" TextAlignment="Center" />
+                        <Border Margin="6,0" Padding="10,14" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="CashText" Foreground="#202020" FontSize="24" TextAlignment="Center" /></Border>
+                    </StackPanel>
+                </Border>
+                <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="17" TextAlignment="Center" MinHeight="22" />
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="3" ColumnDefinitions="*,8,*,8,*,8,*,8,*,8,98" Margin="-42,10,-42,0">
+                <Button Classes="gameplay-footer" Content="&lt;&lt; Back" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="BackButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="2" Content="Deposit" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="DepositButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="4" Content="Deposit Max" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="DepositMaxButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="6" Content="Withdraw" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="WithdrawButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="8" Content="Withdraw Max" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="WithdrawMaxButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="10" Content="?" FontSize="27" Foreground="#FFD51C" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="HelpButton_Click" />
+            </Grid>
+        </Grid>
+        <local:NumericEntryOverlay x:Name="AmountEntry" ZIndex="100" />
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

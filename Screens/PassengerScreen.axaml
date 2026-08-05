@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.PassengerScreen">
+    <UserControl.Styles>
+        <Style Selector="Button"><Setter Property="HorizontalContentAlignment" Value="Center" /><Setter Property="VerticalContentAlignment" Value="Center" /></Style>
+    </UserControl.Styles>
+    <Grid Background="#05052B" Margin="24,36,24,28" RowDefinitions="66,*,80">
+        <Border Background="#E8FAFF" BorderBrush="#74749B" BorderThickness="2">
+            <TextBlock x:Name="SeatsFilledText" Foreground="#505050" FontSize="22" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+
+        <Grid Grid.Row="1" Margin="0,52,0,20" ColumnDefinitions="58*,42*">
+            <Border Margin="0,0,28,0" Background="Black" BorderBrush="#5D5D70" BorderThickness="10" CornerRadius="14">
+                <Image x:Name="ShipImage" Stretch="Uniform" Margin="8" />
+            </Border>
+            <StackPanel Grid.Column="1" Spacing="28">
+                <Border Background="#B9F0FF" CornerRadius="7" Padding="18,25"><TextBlock x:Name="ProfitText" Foreground="#3E3E3E" FontSize="21" TextAlignment="Center" /></Border>
+                <Border Background="#B9F0FF" CornerRadius="7" Padding="18,25"><TextBlock x:Name="CapacityText" Foreground="#3E3E3E" FontSize="21" TextAlignment="Center" /></Border>
+                <Border Background="#B9F0FF" CornerRadius="7" Padding="18,25"><TextBlock x:Name="OnShipText" Foreground="#3E3E3E" FontSize="21" TextAlignment="Center" /></Border>
+                <Border Background="#B9F0FF" CornerRadius="7" Padding="18,25"><TextBlock x:Name="WaitingText" Foreground="#3E3E3E" FontSize="21" TextAlignment="Center" /></Border>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" RowDefinitions="Auto,58" ColumnDefinitions="3*,3*,3*,1.2*">
+            <TextBlock Grid.ColumnSpan="2" x:Name="CurrentFareText" Foreground="White" FontSize="20" FontWeight="SemiBold" TextAlignment="Center" />
+            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" x:Name="NextFareText" Foreground="White" FontSize="20" FontWeight="SemiBold" TextAlignment="Center" />
+            <Button Classes="gameplay-footer" Grid.Row="1" Content="&lt;&lt; Back" Margin="0,10,6,0" Click="ContinueButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Row="1" Grid.Column="1" Content="Pick Up Passengers" Margin="6,10" Click="PickUpButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Row="1" Grid.Column="2" Content="Set Ticket Price" Margin="6,10" Click="SetTicketPriceButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Row="1" Grid.Column="3" Margin="6,10,0,0" Click="HelpButton_Click"><Image x:Name="HelpIcon" Width="44" Height="44" /></Button>
+        </Grid>
+
+        <local:NumericEntryOverlay x:Name="AmountEntry" Grid.RowSpan="3" ZIndex="100" />
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.RowSpan="3" ZIndex="110" />
+    </Grid>
+</UserControl>

@@ -6,5 +6,52 @@
 
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="Button.event-action">
+            <Setter Property="Height" Value="64" />
+            <Setter Property="MinWidth" Value="220" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#55555F" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="9" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#5A5A5E" />
+                    <GradientStop Offset="0.48" Color="#4C4C50" />
+                    <GradientStop Offset="0.5" Color="#35353B" />
+                    <GradientStop Offset="1" Color="#29292F" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.gameplay-footer">
+            <Setter Property="Height" Value="60" />
+            <Setter Property="FontSize" Value="19" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#55555F" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="9" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#626267" />
+                    <GradientStop Offset="0.48" Color="#505056" />
+                    <GradientStop Offset="0.5" Color="#3A3A40" />
+                    <GradientStop Offset="1" Color="#29292F" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+        <Style Selector="Button.gameplay-footer:pointerover">
+            <Setter Property="Background" Value="#56565E" />
+        </Style>
+        <Style Selector="Button.gameplay-footer:pressed">
+            <Setter Property="Background" Value="#303038" />
+        </Style>
     </Application.Styles>
 </Application>

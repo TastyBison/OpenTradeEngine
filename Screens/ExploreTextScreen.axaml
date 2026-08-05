@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.ExploreTextScreen">
+    <Grid Background="#05043B">
+        <Grid Margin="44,66,44,64" ColumnDefinitions="48*,52*" ColumnSpacing="24" RowDefinitions="*,66">
+            <Border Grid.RowSpan="2" Background="#92929F" BorderBrush="#6D6D7D" BorderThickness="7"
+                    CornerRadius="15" Padding="12">
+                <Border Background="White" CornerRadius="11" Padding="10" ClipToBounds="True">
+                    <Image x:Name="Illustration" Stretch="Uniform" />
+                </Border>
+            </Border>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="10,0,0,16">
+                <StackPanel Spacing="24">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock x:Name="Heading" Foreground="White" FontSize="31" FontWeight="Bold"
+                                   TextAlignment="Center" />
+                        <TextBlock x:Name="PageText" Grid.Column="1" Foreground="White" FontSize="15"
+                                   VerticalAlignment="Center" Margin="12,0,0,0" />
+                    </Grid>
+                    <TextBlock x:Name="Body" Foreground="White" FontSize="20" LineHeight="29"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </ScrollViewer>
+
+            <Grid Grid.Column="1" Grid.Row="1" ColumnDefinitions="145,*,*,76" ColumnSpacing="8">
+                <Button Content="&lt;&lt; Back" FontSize="19" FontWeight="Bold" Click="ReturnButton_Click" />
+                <Button x:Name="PreviousButton" Grid.Column="1" Content="Prev" FontSize="19" Click="PreviousButton_Click" />
+                <Button x:Name="NextButton" Grid.Column="2" Content="Next" FontSize="19" Click="NextButton_Click" />
+                <Button x:Name="MainMenuButton" Grid.Column="1" Grid.ColumnSpan="2" Content="Return to Main Menu"
+                        FontSize="19" Click="MainMenuButton_Click" />
+                <Button Grid.Column="3" Content="?" FontSize="28" Foreground="#FFD51C" Click="HelpButton_Click" />
+            </Grid>
+        </Grid>
+
+        <Border x:Name="HelpOverlay" Width="650" Padding="28" IsVisible="False"
+                Background="#F6FFFFFF" BorderBrush="#6D6D7D" BorderThickness="9" CornerRadius="16"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="22">
+                <TextBlock x:Name="HelpText" Foreground="#222222" FontSize="20" TextWrapping="Wrap" />
+                <Button Content="OK" Width="220" HorizontalAlignment="Center" Click="CloseHelpButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

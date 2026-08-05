@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.TravelEventScreen">
+    <UserControl.Styles>
+        <Style Selector="Button.event-button">
+            <Setter Property="Height" Value="64" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#55555F" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="9" />
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                    <GradientStop Offset="0" Color="#5A5A5E" />
+                    <GradientStop Offset="0.48" Color="#4C4C50" />
+                    <GradientStop Offset="0.5" Color="#35353B" />
+                    <GradientStop Offset="1" Color="#29292F" />
+                </LinearGradientBrush>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#000033" RowDefinitions="Auto,*">
+        <Border x:Name="DebugToolbar" IsVisible="False" Background="#CC18183B" Padding="12,8">
+            <Grid ColumnDefinitions="Auto,*,Auto,12,Auto">
+                <Button Classes="event-button" Height="42" FontSize="16" Content="Previous Event"
+                        Click="DebugPreviousButton_Click" />
+                <TextBlock x:Name="DebugEventNumber" Grid.Column="1" Foreground="White" FontSize="18"
+                           FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="2" Foreground="#AFCFFF" VerticalAlignment="Center"
+                           Text="Disposable test state — your campaign is unchanged" />
+                <Button Grid.Column="4" Classes="event-button" Height="42" FontSize="16" Content="Exit Debugger"
+                        Click="DebugExitButton_Click" />
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Margin="44,46,48,54" ColumnDefinitions="52*,58,48*">
+            <Border Grid.Column="0" Padding="12" Background="#898994" BorderBrush="#44445D"
+                    BorderThickness="7" CornerRadius="17" VerticalAlignment="Stretch">
+                <Border x:Name="EventImageBackground" Background="White" CornerRadius="12" Padding="18">
+                    <Image x:Name="EventImage" Stretch="Uniform" />
+                </Border>
+            </Border>
+
+            <Grid Grid.Column="2" RowDefinitions="Auto,26,*,28,Auto" Margin="0,0,0,2">
+                <TextBlock x:Name="Heading" Foreground="White" FontSize="33" FontWeight="Bold"
+                           TextAlignment="Center" TextWrapping="Wrap" />
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="Message" Foreground="White" FontSize="23" LineHeight="31"
+                               TextWrapping="Wrap" TextAlignment="Left" />
+                </ScrollViewer>
+                <Grid Grid.Row="4">
+                    <Grid x:Name="ChoicePanel" ColumnDefinitions="*,14,*" IsVisible="False">
+                        <Button x:Name="AcceptButton" Classes="event-button event-action" Click="AcceptButton_Click" />
+                        <Button x:Name="DeclineButton" Grid.Column="2" Classes="event-button event-action"
+                                Click="DeclineButton_Click" />
+                    </Grid>
+                    <Button x:Name="ContinueButton" Classes="event-button event-action" Content="OK"
+                            Click="ContinueButton_Click" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

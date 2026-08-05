@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.NetWorthScreen">
+    <Grid Background="#02022F" RowDefinitions="Auto,*,Auto">
+        <Border Margin="24,33,0,8" Width="892" Padding="12,11" Background="#484872"
+                CornerRadius="14" HorizontalAlignment="Left">
+            <TextBlock x:Name="ChartHeading" Text="Net Worth - Week 1" Foreground="White" FontSize="31"
+                       FontWeight="Bold" TextAlignment="Center" />
+        </Border>
+
+        <Grid Grid.Row="1" Margin="24,0" ColumnDefinitions="82*,18*">
+            <Border Background="White" BorderBrush="#555576" BorderThickness="8"
+                    CornerRadius="16" Padding="12">
+                <Grid ColumnDefinitions="84,*">
+                    <Grid RowDefinitions="Auto,*,Auto,*,Auto,*,Auto,*,Auto" Margin="0,0,8,0">
+                        <TextBlock x:Name="AxisTopText" Text="0" Foreground="#68686F" FontSize="17" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="AxisUpperText" Grid.Row="2" Text="-50K" Foreground="#68686F" FontSize="17" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="AxisMiddleText" Grid.Row="4" Text="-100K" Foreground="#68686F" FontSize="17" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="AxisLowerText" Grid.Row="6" Text="-150K" Foreground="#68686F" FontSize="17" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="AxisBottomText" Grid.Row="8" Text="-200K" Foreground="#68686F" FontSize="17" HorizontalAlignment="Right" />
+                    </Grid>
+                    <Grid Grid.Column="1" Background="#FCFCFC">
+                        <Grid RowDefinitions="*,*,*,*">
+                            <Border BorderBrush="#D5DDEC" BorderThickness="0,1,0,0" />
+                            <Border Grid.Row="1" BorderBrush="#D5DDEC" BorderThickness="0,1,0,0" />
+                            <Border Grid.Row="2" BorderBrush="#D5DDEC" BorderThickness="0,1,0,0" />
+                            <Border Grid.Row="3" BorderBrush="#D5DDEC" BorderThickness="0,1,0,1" />
+                        </Grid>
+                        <Grid x:Name="BarGrid" />
+                        <Canvas x:Name="HistoryCanvas" IsVisible="False"
+                                SizeChanged="HistoryCanvas_SizeChanged" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <StackPanel x:Name="LegendPanel" Grid.Column="1" Margin="14,110,0,0" Spacing="38" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="24,6,24,45" ColumnDefinitions="22*,22*,22*,22*,12*" ColumnSpacing="6">
+            <Button Classes="gameplay-footer" Content="Continue" Click="ContinueButton_Click" />
+            <Button x:Name="HistoryButton" Classes="gameplay-footer" Grid.Column="1"
+                    Content="Company History" Click="HistoryButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="2" Content="Net Worth"
+                    Click="NetWorthButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="3" Content="Market Strength"
+                    Click="MarketStrengthButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="4" Padding="5" Click="HelpButton_Click">
+                <Image x:Name="HelpIcon" Width="54" Height="54" Stretch="Uniform" />
+            </Button>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.RowSpan="3" ZIndex="110" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OpenTradeEngine.Screens.DifficultyScreen">
+    <Grid Background="#030303">
+        <Image x:Name="StarsImage" Stretch="UniformToFill" />
+        <Image x:Name="PlanetImage" Stretch="Uniform" HorizontalAlignment="Left"
+               VerticalAlignment="Bottom" Width="720" />
+        <Grid Margin="48,38" ColumnDefinitions="38*,42,62*">
+            <StackPanel Grid.Column="0" Spacing="12">
+                <Button Classes="main-menu" Content="Tutorial" Tag="1" Click="LevelButton_Click" />
+                <Button Classes="main-menu" Content="Novice" Tag="2" Click="LevelButton_Click" />
+                <Button Classes="main-menu" Content="Beginner" Tag="3" Click="LevelButton_Click" />
+                <Button Classes="main-menu" Content="Intermediate" Tag="4" Click="LevelButton_Click" />
+                <Button Classes="main-menu" Content="Expert" Tag="5" Click="LevelButton_Click" />
+                <Button Classes="main-menu" Content="Master" Tag="6" Click="LevelButton_Click" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Spacing="30">
+                <TextBlock Text="Beginning the Game" Foreground="White" FontSize="31"
+                           FontWeight="Bold" TextAlignment="Center" />
+                <TextBlock Foreground="White" FontSize="20" LineHeight="30" TextWrapping="Wrap"
+                           Text="If you’re a first-time player, we highly recommend playing the Tutorial Game. In the Tutorial, we introduce new features each turn until you’re playing the complete game. Remember, your goal is to become the richest business owner in the galaxy!&#10;&#10;Keep in mind that Gazillionaire is a turn-based game, meaning each player takes a turn. Once everyone has taken a turn, the game advances to the next week.&#10;&#10;Have fun building your business empire!" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

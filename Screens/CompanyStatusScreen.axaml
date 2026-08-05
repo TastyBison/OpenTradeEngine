@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.CompanyStatusScreen">
+    <Grid Background="#05052B">
+        <Grid Margin="58,45,58,18" RowDefinitions="*,72" ColumnDefinitions="540,34,*">
+            <Grid Grid.Column="0" RowDefinitions="90,*,90">
+                <ItemsControl x:Name="TopCargo" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="18" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <Border Grid.Row="1" Background="Black" BorderBrush="#686879" BorderThickness="7"
+                        CornerRadius="12" Padding="12" Margin="0,8">
+                    <Image x:Name="ShipImage" Stretch="Uniform" />
+                </Border>
+                <ItemsControl x:Name="BottomCargo" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="18" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+            <StackPanel Grid.Column="2" Spacing="16" VerticalAlignment="Center">
+                <Border Background="#74749B" CornerRadius="8" Padding="0,4,0,6"><StackPanel Spacing="4">
+                    <TextBlock Text="Company Name" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    <Border Margin="6,0" Padding="8,10" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="CompanyText" Foreground="#202020" FontSize="22" TextAlignment="Center" /></Border>
+                </StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,4,0,6"><StackPanel Spacing="4">
+                    <TextBlock Text="Game Difficulty Level" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    <Border Margin="6,0" Padding="8,10" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="DifficultyText" Foreground="#202020" FontSize="22" TextAlignment="Center" /></Border>
+                </StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,4,0,6"><StackPanel Spacing="4">
+                    <TextBlock Text="Net Worth (at the start of the week)" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    <Border Margin="6,0" Padding="8,10" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="StartWorthText" Foreground="#202020" FontSize="22" TextAlignment="Center" /></Border>
+                </StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,4,0,6"><StackPanel Spacing="4">
+                    <TextBlock Text="Net Worth (right now)" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    <Border Margin="6,0" Padding="8,10" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="CurrentWorthText" Foreground="#202020" FontSize="22" TextAlignment="Center" /></Border>
+                </StackPanel></Border>
+                <Border Background="#74749B" CornerRadius="8" Padding="0,4,0,6"><StackPanel Spacing="4">
+                    <TextBlock Text="Company Status" Foreground="White" FontSize="20" TextAlignment="Center" />
+                    <Border Margin="6,0" Padding="8,10" Background="#B9F0FF" CornerRadius="7"><TextBlock x:Name="StatusText" Foreground="#202020" FontSize="22" TextAlignment="Center" /></Border>
+                </StackPanel></Border>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.ColumnSpan="3" ColumnDefinitions="*,8,*,8,*,8,*,8,76" Margin="-32,10,-32,0">
+                <Button Classes="gameplay-footer" Content="&lt;&lt; Back" HorizontalAlignment="Stretch" Click="BackButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="2" Content="Graph" HorizontalAlignment="Stretch" Click="GraphButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="4" Content="Computer Players" HorizontalAlignment="Stretch" Click="ComputerPlayersButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="6" Content="Ship Info" HorizontalAlignment="Stretch" Click="ShipInfoButton_Click" />
+                <Button Classes="gameplay-footer" Grid.Column="8" Content="?" FontSize="27" Foreground="#FFD51C" Click="HelpButton_Click" />
+            </Grid>
+        </Grid>
+        <local:InformationOverlay x:Name="HelpOverlay" ZIndex="110" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:OpenTradeEngine.Screens" x:Class="OpenTradeEngine.Screens.TaxScreen">
+    <UserControl.Styles><Style Selector="Button"><Setter Property="HorizontalContentAlignment" Value="Center" /><Setter Property="VerticalContentAlignment" Value="Center" /></Style></UserControl.Styles>
+    <Grid Background="#05052B" Margin="62,82,44,60" ColumnDefinitions="58*,42*" RowDefinitions="*,Auto,70">
+        <Border Margin="0,0,52,0" Background="White" BorderBrush="#666675" BorderThickness="10" CornerRadius="14"><Image x:Name="TaxImage" Margin="6" Stretch="Uniform" /></Border>
+        <StackPanel Grid.Column="1" Spacing="27">
+            <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Passenger Taxes Accrued" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="PassengerTaxText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Commodity Tariffs Accrued" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="TariffText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Total Taxes Accrued" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="TotalText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="7" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Your Cash" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="CashText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="AuditorText" Foreground="White" FontSize="19" FontWeight="SemiBold" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="1.2*,1.2*,0.6*" Margin="0,10,0,0" Height="58">
+            <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Margin="0,0,5,0" Click="ContinueButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="1" Content="Pay All" Margin="5" Click="PayButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="2" Margin="5,0,0,0" Click="HelpButton_Click"><Image x:Name="HelpIcon" Width="42" Height="42" /></Button>
+        </Grid>
+        <TextBlock Grid.Row="2" x:Name="StatusText" Foreground="LightGreen" FontSize="16" TextAlignment="Center" />
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.RowSpan="3" Grid.ColumnSpan="2" ZIndex="110" />
+    </Grid>
+</UserControl>

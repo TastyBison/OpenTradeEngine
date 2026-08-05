@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:OpenTradeEngine.Screens"
+             x:Class="OpenTradeEngine.Screens.FuelScreen">
+    <UserControl.Styles>
+        <Style Selector="Button"><Setter Property="HorizontalContentAlignment" Value="Center" /><Setter Property="VerticalContentAlignment" Value="Center" /></Style>
+    </UserControl.Styles>
+    <Grid Background="#05052B" Margin="32,54,14,18" ColumnDefinitions="52*,40*,8*" RowDefinitions="*,68">
+        <Grid Grid.Column="0" RowDefinitions="150,*,150" Margin="0,0,26,0">
+            <UniformGrid Columns="6" Rows="2" Margin="0,0,0,28">
+                <Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" />
+                <Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" />
+            </UniformGrid>
+            <Border Grid.Row="1" Background="Black" BorderBrush="#5D5D70" BorderThickness="10" CornerRadius="14">
+                <Image x:Name="ShipImage" Stretch="Uniform" Margin="8" />
+            </Border>
+            <UniformGrid Grid.Row="2" Columns="6" Rows="2" Margin="0,28,0,0">
+                <Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" />
+                <Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" /><Border Background="#3B466A" CornerRadius="6" Margin="9" /><Border Background="#17346E" CornerRadius="6" Margin="9" />
+            </UniformGrid>
+        </Grid>
+
+        <StackPanel Grid.Column="1" Spacing="28">
+            <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Your Cash" Foreground="White" FontSize="21" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="CashText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Fuel Cost (per ton)" Foreground="White" FontSize="21" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="PriceText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Fuel Price Range (per ton)" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock Text="200 - 2,000" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Fuel Remaining In Tank" Foreground="White" FontSize="20" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="RemainingText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <Border Background="#74749B" CornerRadius="8" Padding="0,5,0,7"><StackPanel Spacing="4"><TextBlock Text="Fuel Capacity" Foreground="White" FontSize="21" TextAlignment="Center" /><Border Margin="6,0" Padding="8,15" Background="#B9F0FF" CornerRadius="6"><TextBlock x:Name="CapacityText" Foreground="#303030" FontSize="23" TextAlignment="Center" /></Border></StackPanel></Border>
+            <TextBlock x:Name="StatusText" Foreground="LightGreen" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Border x:Name="GaugeTrack" Grid.Column="2" Background="#303038" CornerRadius="28" Margin="14,20,0,20"
+                ClipToBounds="True" Cursor="Hand" PointerPressed="GaugeTrack_PointerPressed"
+                SizeChanged="GaugeTrack_SizeChanged">
+            <Border x:Name="GaugeFill" Height="0" Background="#65D5FF" CornerRadius="24" Margin="4"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom" IsHitTestVisible="False" />
+        </Border>
+
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" ColumnDefinitions="1.2*,2.1*,0.8*" Margin="0,8,0,0">
+            <Button Classes="gameplay-footer" Content="&lt;&lt; Back" Margin="0,0,6,0" Click="ContinueButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="1" Content="Buy Fuel" Margin="6" Click="FillButton_Click" />
+            <Button Classes="gameplay-footer" Grid.Column="2" Margin="6,0,0,0" Click="HelpButton_Click"><Image x:Name="HelpIcon" Width="44" Height="44" /></Button>
+        </Grid>
+        <local:NumericEntryOverlay x:Name="AmountEntry" Grid.RowSpan="2" Grid.ColumnSpan="3" ZIndex="100" />
+        <local:InformationOverlay x:Name="HelpOverlay" Grid.RowSpan="2" Grid.ColumnSpan="3" ZIndex="110" />
+    </Grid>
+</UserControl>
